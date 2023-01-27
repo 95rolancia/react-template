@@ -1,5 +1,7 @@
-import { util } from "utils/utils";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import LikeButton from "components/LikeButton";
 
-console.log("hello index.js");
-
-util();
+const rootNode = document.getElementById("root");
+const root = ReactDOM.createRoot(rootNode);
+root.render(React.createElement(LikeButton));
