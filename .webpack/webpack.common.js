@@ -20,4 +20,7 @@ module.exports = {
       template: "public/index.html",
     }),
   ],
+  resolve: {
+    modules: [path.resolve(__dirname, "../src"), "node_modules"], // default: ["node_modules"]
+  },
 };
