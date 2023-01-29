@@ -3,11 +3,20 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { BannerPlugin } = require("webpack");
 
 module.exports = {
-  entry: path.join(__dirname, "../src/index.js"),
+  entry: path.join(__dirname, "../src/index.tsx"),
   output: {
     path: path.resolve(__dirname, "../dist"), // webpack으로 빌드한 결과물이 위치할 경로
     filename: "[name].[contenthash].js",
     clean: true, // 실행시 output 초기화
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(ts|tsx)/,
+        use: "babel-loader",
+        exclude: /node_modules/,
+      },
+    ],
   },
   plugins: [
     // 번들링된 파일 상단에 배너 표시해주는 플러그인
@@ -22,5 +31,6 @@ module.exports = {
   ],
   resolve: {
     modules: [path.resolve(__dirname, "../src"), "node_modules"], // default: ["node_modules"]
+    extensions: ['.ts', '.tsx', '.js']
   },
 };
