@@ -1,0 +1,10 @@
+{
+  "singleQuote": true,
+  "semi": true,
+  "braceStyle": "expand",
+  "tabWidth": "2",
+  "trailingComma": "es5",
+  "printWitdh": "120",
+  "arrowParens": "always",
+  "endOfLine": "lf"
+}
