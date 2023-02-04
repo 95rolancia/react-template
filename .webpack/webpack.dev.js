@@ -24,5 +24,6 @@ module.exports = {
     },
     hot: true, // Hot Module Replacement
     open: true, // 실행 시 브라우저 자동으로 열기
+    historyApiFallback: true,
   },
 };
