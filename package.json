@@ -10,7 +10,15 @@
     "dev": "webpack serve --open --mode development",
     "build:dev": "webpack --mode development",
     "build:prod": "webpack --mode production",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx src"
+    "lint": "yarn lint:eslint && yarn lint:prettier",
+    "lint:eslint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint:prettier": "prettier --check 'src/**/*.{js,ts,jsx,tsx}'",
+    "lint:fix": "yarn lint:fix:eslint && yarn lint:fix:prettier",
+    "lint:fix:eslint": "eslint --fix 'src/**/*.{js,ts,jsx,tsx}'",
+    "lint:fix:prettier": "prettier --write 'src/**/*.{js,ts,jsx,tsx}'"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": "yarn run lint"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -35,6 +43,8 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.1.0",
     "prettier": "^2.8.3",
     "typescript": "^4.9.4",
     "webpack": "^5.75.0",
