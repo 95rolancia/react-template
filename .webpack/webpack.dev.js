@@ -1,16 +1,13 @@
 const { join } = require("path");
 const path = require("path");
-const { DefinePlugin } = require("webpack");
-const { merge } = require("webpack-merge");
-const common = require("./webpack.common.js");
+const { DefinePlugin, BannerPlugin } = require("webpack");
 
-require("dotenv").config({ path: join(__dirname, "../.env.development") });
-
-module.exports = merge(common, {
+module.exports = {
   mode: "development",
   plugins: [
-    new DefinePlugin({
-      "process.env.TEST_URL": JSON.stringify(process.env.TEST_URL),
+    // 번들링된 파일 상단에 배너 표시해주는 플러그인
+    new BannerPlugin({
+      banner: `${new Date()} Bundled Files Development Mode`,
     }),
   ],
   devtool: "inline-source-map",
@@ -28,4 +25,4 @@ module.exports = merge(common, {
     hot: true, // Hot Module Replacement
     open: true, // 실행 시 브라우저 자동으로 열기
   },
-});
+};

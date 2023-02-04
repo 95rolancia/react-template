@@ -7,9 +7,9 @@
   "author": "rolancia",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack serve --open --config ./.webpack/webpack.dev.js",
-    "build:dev": "webpack --config ./.webpack/webpack.dev.js",
-    "build:prod": "webpack --config ./.webpack/webpack.prod.js",
+    "dev": "webpack serve --open --mode development",
+    "build:dev": "webpack --mode development",
+    "build:prod": "webpack --mode production",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src"
   },
   "dependencies": {
