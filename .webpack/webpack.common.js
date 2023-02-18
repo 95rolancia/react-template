@@ -1,6 +1,5 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { BannerPlugin } = require("webpack");
 
 module.exports = {
   entry: path.join(__dirname, "../src/index.tsx"),
@@ -8,6 +7,7 @@ module.exports = {
     path: path.resolve(__dirname, "../dist"), // webpack으로 빌드한 결과물이 위치할 경로
     filename: "[name].[contenthash].js",
     clean: true, // 실행시 output 초기화
+    publicPath: "/",
   },
   module: {
     rules: [
@@ -27,6 +27,6 @@ module.exports = {
   ],
   resolve: {
     modules: [path.resolve(__dirname, "../src"), "node_modules"], // default: ["node_modules"]
-    extensions: ['.ts', '.tsx', '.js', 'jsx']
+    extensions: [".ts", ".tsx", ".js", "jsx"],
   },
 };

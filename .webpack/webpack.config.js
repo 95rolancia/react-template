@@ -8,12 +8,10 @@ module.exports = (env, argv) => {
   const envConfig = isProduction
     ? require("./webpack.prod")
     : require("./webpack.dev");
- 
 
   const envFile = isProduction ? ".env.production" : ".env.development";
   const envVars = dotenv.config({ path: envFile }).parsed;
 
-  console.log("envVars:", envVars);
   // Add environment variables to webpack as a new plugin
   envConfig.plugins.push(
     new DefinePlugin({

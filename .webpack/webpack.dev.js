@@ -13,7 +13,7 @@ module.exports = {
   devtool: "inline-source-map",
   devServer: {
     static: {
-      directory: path.join(__dirname, "../public"), // dev server 사용 시 정적인 파일들의 경로
+      directory: path.join(__dirname, "../dist"), // dev server 사용 시 정적인 파일들의 경로
     },
     compress: true, // gzip 사용
     port: 9000,
